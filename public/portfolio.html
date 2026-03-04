@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
-<title>Harrison Wynn — AI & Operations</title>
+<title>Harrison Wynn — AI Efficiency</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 :root{
@@ -20,7 +20,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(4,5,10,.9);
   align-items:center;height:56px}
 .nav-logo{font-weight:900;font-size:15px;background:linear-gradient(100deg,#fff 30%,var(--accent) 100%);
   -webkit-background-clip:text;-webkit-text-fill-color:transparent}
-.nav-links{display:flex;gap:24px}
+.nav-links{display:flex;gap:24px;align-items:center}
 .nav-links a{color:var(--sub);font-size:12px;font-weight:600;text-decoration:none;
   letter-spacing:.5px;transition:color .15s;text-transform:uppercase}
 .nav-links a:hover{color:var(--text)}
@@ -33,13 +33,6 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(4,5,10,.9);
 .hero-glow2{position:absolute;width:400px;height:400px;border-radius:50%;
   background:radial-gradient(circle,rgba(0,212,255,.07) 0%,transparent 70%);
   top:65%;left:25%;pointer-events:none}
-.status-pill{display:inline-flex;align-items:center;gap:8px;background:rgba(0,245,160,.08);
-  border:1px solid rgba(0,245,160,.25);border-radius:20px;padding:6px 16px;
-  font-size:11px;color:var(--green);font-weight:700;letter-spacing:1px;
-  text-transform:uppercase;margin-bottom:24px}
-.status-dot{width:6px;height:6px;border-radius:50%;background:var(--green);
-  box-shadow:0 0 8px var(--green);animation:pulse 2s infinite}
-@keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
 h1{font-size:clamp(38px,6vw,70px);font-weight:900;line-height:1.04;letter-spacing:-2px;margin-bottom:18px}
 h1 span{background:linear-gradient(135deg,var(--accent),var(--cyan));
   -webkit-background-clip:text;-webkit-text-fill-color:transparent}
@@ -55,15 +48,6 @@ h1 span{background:linear-gradient(135deg,var(--accent),var(--cyan));
   transition:all .2s;text-decoration:none;display:inline-block}
 .btn-secondary:hover{border-color:var(--accent);color:var(--accent)}
 
-.stats-strip{background:var(--card);border-top:1px solid var(--border);
-  border-bottom:1px solid var(--border);padding:22px 32px}
-.stats-inner{max-width:1100px;margin:0 auto;display:grid;
-  grid-template-columns:repeat(4,1fr);gap:20px;text-align:center}
-.stat-num{font-size:26px;font-weight:900;background:linear-gradient(135deg,var(--accent),var(--cyan));
-  -webkit-background-clip:text;-webkit-text-fill-color:transparent}
-.stat-label{font-size:11px;color:var(--sub);margin-top:2px;font-weight:600;
-  text-transform:uppercase;letter-spacing:.8px}
-
 section{padding:80px 24px}
 .section-inner{max-width:1100px;margin:0 auto}
 .section-tag{font-size:10px;color:var(--accent);letter-spacing:3px;font-weight:800;
@@ -71,7 +55,7 @@ section{padding:80px 24px}
 h2{font-size:clamp(24px,4vw,38px);font-weight:900;letter-spacing:-1px;margin-bottom:14px}
 h2 em{font-style:normal;background:linear-gradient(135deg,var(--accent),var(--pink));
   -webkit-background-clip:text;-webkit-text-fill-color:transparent}
-.section-sub{color:var(--sub);font-size:15px;max-width:500px;margin-bottom:44px;line-height:1.7}
+.section-sub{color:var(--sub);font-size:15px;max-width:540px;margin-bottom:44px;line-height:1.7}
 
 /* FEATURED */
 .featured-card{background:var(--card);border:1px solid var(--accent);border-radius:20px;
@@ -95,6 +79,7 @@ h2 em{font-style:normal;background:linear-gradient(135deg,var(--accent),var(--pi
   border-radius:6px;padding:3px 10px;font-size:11px;font-weight:700}
 .chip.green{background:rgba(0,245,160,.1);color:var(--green);border-color:rgba(0,245,160,.2)}
 .chip.cyan{background:rgba(0,212,255,.1);color:var(--cyan);border-color:rgba(0,212,255,.2)}
+.chip.pink{background:rgba(244,114,182,.1);color:var(--pink);border-color:rgba(244,114,182,.2)}
 .featured-body h3{font-size:20px;font-weight:900;margin-bottom:8px}
 .featured-body p{color:var(--sub);font-size:14px;line-height:1.7;margin-bottom:18px}
 .feature-list{display:grid;grid-template-columns:1fr 1fr;gap:7px;margin-bottom:22px}
@@ -104,10 +89,14 @@ h2 em{font-style:normal;background:linear-gradient(135deg,var(--accent),var(--pi
 /* PROJECT GRID */
 .project-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:18px}
 .proj-card{background:var(--card);border:1px solid var(--border);border-radius:16px;
-  padding:22px;transition:all .2s}
+  padding:22px;transition:all .2s;position:relative}
 .proj-card:hover{border-color:var(--accent);transform:translateY(-3px);
   box-shadow:0 12px 40px rgba(124,111,255,.15)}
-.proj-card a{text-decoration:none;color:inherit}
+.proj-card.fun{border-color:rgba(244,114,182,.3)}
+.proj-card.fun:hover{border-color:var(--pink);box-shadow:0 12px 40px rgba(244,114,182,.15)}
+.fun-badge{position:absolute;top:16px;right:16px;background:rgba(244,114,182,.12);
+  color:var(--pink);border:1px solid rgba(244,114,182,.25);border-radius:20px;
+  padding:3px 10px;font-size:10px;font-weight:800;letter-spacing:.5px}
 .proj-icon{font-size:26px;margin-bottom:12px}
 .proj-card h3{font-size:15px;font-weight:800;margin-bottom:7px}
 .proj-card p{font-size:13px;color:var(--sub);line-height:1.6;margin-bottom:14px}
@@ -117,7 +106,8 @@ h2 em{font-style:normal;background:linear-gradient(135deg,var(--accent),var(--pi
   text-transform:uppercase;letter-spacing:.5px}
 .proj-link{font-size:12px;font-weight:700;color:var(--accent);text-decoration:none;
   display:inline-flex;align-items:center;gap:4px}
-.proj-link:hover{color:var(--cyan)}
+.proj-link.pink{color:var(--pink)}
+.proj-link:hover{opacity:.8}
 
 /* EXPERIENCE */
 .exp-grid{display:flex;flex-direction:column;gap:14px}
@@ -134,6 +124,14 @@ h2 em{font-style:normal;background:linear-gradient(135deg,var(--accent),var(--pi
   display:flex;align-items:flex-start;gap:8px}
 .exp-bullets li::before{content:"▸";color:var(--accent);flex-shrink:0;margin-top:1px}
 .exp-tags{display:flex;gap:6px;flex-wrap:wrap;margin-top:12px}
+
+/* RESUME DOWNLOAD BANNER */
+.resume-banner{background:linear-gradient(135deg,rgba(124,111,255,.1),rgba(0,212,255,.05));
+  border:1px solid rgba(124,111,255,.25);border-radius:14px;
+  padding:20px 26px;display:flex;justify-content:space-between;align-items:center;
+  margin-bottom:28px;flex-wrap:wrap;gap:14px}
+.resume-banner-text h4{font-size:15px;font-weight:800;margin-bottom:3px}
+.resume-banner-text p{font-size:13px;color:var(--sub)}
 
 /* SKILLS */
 .skills-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:14px}
@@ -156,82 +154,80 @@ h2 em{font-style:normal;background:linear-gradient(135deg,var(--accent),var(--pi
   border-radius:10px;font-size:12px;font-weight:700;text-decoration:none;
   transition:all .2s;border:1px solid var(--border);color:var(--text)}
 .contact-link:hover{border-color:var(--accent);color:var(--accent)}
+.contact-link.highlight{background:var(--accent);color:#fff;border-color:var(--accent);
+  box-shadow:0 0 20px rgba(124,111,255,.4)}
+.contact-link.highlight:hover{transform:translateY(-2px);color:#fff}
 
 footer{text-align:center;padding:24px;color:var(--sub);font-size:11px;
   border-top:1px solid var(--border)}
 
 @media(max-width:640px){
-  .stats-inner{grid-template-columns:1fr 1fr}
   .feature-list{grid-template-columns:1fr}
   .preview-mockup{grid-template-columns:1fr 1fr}
   .exp-header{grid-template-columns:1fr}
   nav .nav-links{display:none}
+  .resume-banner{flex-direction:column}
 }
 </style>
 </head>
 <body>
 
-<!-- ═══════════════════════════════════════════
-  ✏️  EASY EDIT ZONE — update your info here
-     Everything below this block is design only
-════════════════════════════════════════════ -->
+<!-- ═══════════════════════════════════════════════════════
+  ✏️  EASY EDIT ZONE — only touch this block to update
+     ↓ resumeLink: upload PDF to Google Drive → share →
+       copy link → paste below (replace the # )
+════════════════════════════════════════════════════════ -->
 <script>
 const CONTENT = {
   name: "Harrison Wynn",
-  title: "AI-Powered Operations & Partnerships",
-  tagline: "I build tools and systems that make GTM and operations teams 10x more efficient — using AI to eliminate busywork, surface signal, and drive results.",
-  location: "Santa Monica, CA",
+  title: "AI-Powered Efficiency",
+  tagline: "I use AI to build things that actually get used — dashboards, tools, games, and whatever comes next.",
   email: "harrisonwynn139@gmail.com",
   phone: "(818) 294-5200",
   linkedin: "https://www.linkedin.com/in/harry-wynn-608b25126/",
-  github: "https://github.com/isley-sudo",
-  resumeLink: "#",                                     // ← add Google Drive / Dropbox PDF link
-  dashboardLink: "https://harrywynn.vercel.app",
-
-  stats: [
-    { num: "$1.2B", label: "Portfolio Managed" },
-    { num: "55%",   label: "Efficiency Gain Built" },
-    { num: "3+",    label: "AI Tools Shipped" },
-    { num: "+16%",  label: "GMS Growth YoY" },
-  ],
+  resumeLink: "#",   // ← PASTE YOUR GOOGLE DRIVE PDF LINK HERE
 
   featuredProject: {
     title: "Partnerships Command Center",
-    description: "A full AI-powered partnerships intelligence dashboard built entirely with Claude — no engineering team, no budget, just AI and curiosity. Tracks rep performance, gamifies the leaderboard, predicts partner churn, auto-generates leadership reports, and gives every seller personalized AI coaching.",
+    description: "A full AI-powered partnerships intelligence dashboard — no engineering team, no budget, just Claude and curiosity. Tracks rep performance, gamifies competition, predicts partner churn, and auto-generates leadership reports.",
     link: "https://harrywynn.vercel.app",
     features: [
       "Gamified leaderboard with live win feed",
       "AI coaching tips per rep based on live data",
       "Churn predictor with partner risk scoring",
       "30/60/90 day sprint goal tracker per rep",
-      "Auto-generated leadership report (copy/paste ready)",
+      "Auto-generated leadership report",
       "Monthly recap with one-click export",
       "Partner priority matrix & health scoring",
-      "Pipeline funnel & revenue attainment tracking",
+      "Pipeline funnel & revenue attainment",
     ],
   },
 
   otherProjects: [
     {
-      icon: "🎮",
-      title: "AI Mini Games Platform",
-      description: "Built and shipped a suite of AI-assisted mini games using LLMs for code generation, UX iteration, and debugging. Implemented Google AdSense monetization, analytics pipelines, and SQL-based behavior analysis to optimize RPM, CTR, and retention.",
-      tags: ["LLMs", "Google AdSense", "MySQL", "Analytics", "Monetization"],
-      link: "",  // ← add link if public
+      icon: "🏠",
+      title: "Real Estate Dashboard",
+      description: "AI-powered deal analysis and market intelligence tool for real estate teams — surfacing the right opportunities faster and cutting manual research time.",
+      tags: ["AI", "Real Estate", "Data", "Dashboard"],
+      link: "",
+      fun: false,
     },
     {
-      icon: "🤖",
-      title: "AI Project #2",           // ← replace with your next project
-      description: "Add your next AI tool, workflow automation, or experiment here. Even a prompt system or GPT you configured for a team counts — show range.",
-      tags: ["AI", "Automation", "Ops"],
+      icon: "🎮",
+      title: "AI Mini Games",
+      description: "Built and shipped a suite of AI-assisted browser games — because not everything has to be a boardroom deck. Monetized with AdSense, optimized with SQL-based behavior analytics, and iterated fast using LLMs.",
+      tags: ["LLMs", "Google AdSense", "MySQL", "Just for Fun"],
       link: "",
+      fun: true,
+      funLabel: "just for funzies 🎉",
     },
     {
       icon: "⚡",
-      title: "AI Project #3",           // ← replace with your next project
-      description: "Another example of AI applied to a real business problem. Quantify the impact if you can — time saved, revenue influenced, efficiency gained.",
-      tags: ["Workflow", "Revenue Ops", "AI Tools"],
+      title: "Your Next Project",
+      description: "More coming. If it can be made faster, smarter, or more useful with AI — it's getting built.",
+      tags: ["AI", "TBD", "Watch This Space"],
       link: "",
+      fun: false,
     },
   ],
 
@@ -242,12 +238,25 @@ const CONTENT = {
       location: "Los Angeles, CA",
       dates: "Feb 2024 – Present",
       bullets: [
-        "Owned strategy and execution for a $1.2B portfolio of high-growth marketplace sellers, partnering cross-functionally to improve demand planning and scale seller experiences.",
-        "Led weekly executive business reviews, translating operational data into clear priorities that informed senior decision-making.",
-        "Appointed Category Strategic Lead for all 2024/2025 Tentpole Events (Prime Day, Black Friday/Cyber Monday) — contributed to record +16% GMS YoY.",
+        "Owned strategy and execution for a $1.2B portfolio of high-growth marketplace sellers, driving demand planning, risk mitigation, and seller experience at scale.",
+        "Led weekly executive business reviews, translating operational data into clear priorities for senior leadership.",
+        "Appointed Category Strategic Lead for all 2024/2025 Tentpole Events — contributed to record +16% GMS YoY.",
         "Redesigned SKUs for e-commerce-first packaging, reducing in-transit damage and returns by $53.5M.",
       ],
       tags: ["Portfolio Strategy", "Executive Comms", "Marketplace Ops", "Cross-Functional"],
+    },
+    {
+      role: "AI Tools & Products — Creator",
+      company: "Independent / Entrepreneurial",
+      location: "Los Angeles, CA",
+      dates: "Ongoing",
+      bullets: [
+        "Building a growing suite of AI-powered tools spanning partnerships intelligence, real estate analysis, browser games, and workflow automation.",
+        "Using LLMs for code generation, UX iteration, and debugging — shipping fast and learning faster.",
+        "Implemented analytics pipelines and SQL-based behavior analysis to optimize product quality and monetization.",
+        "Experimented with Google AdSense monetization, optimizing ad placement based on RPM, CTR, and retention signals.",
+      ],
+      tags: ["LLMs", "SQL", "Product", "Monetization", "Analytics"],
     },
     {
       role: "Operations Manager",
@@ -255,9 +264,9 @@ const CONTENT = {
       location: "Los Angeles, CA",
       dates: "Mar 2022 – Feb 2024",
       bullets: [
-        "Developed SKU segmentation strategy to prioritize high-growth products, improving profitability and reducing carrying costs.",
-        "Built integrated planning model using Salesforce and ERP data to enhance operational execution and risk management.",
-        "Collaborated with Sales & Marketing to enhance go-to-market strategies and optimize channel allocation.",
+        "Built SKU segmentation strategy to prioritize high-growth products and reduce carrying costs.",
+        "Created integrated planning model using Salesforce and ERP data to sharpen operational execution.",
+        "Collaborated with Sales & Marketing to optimize go-to-market timing and channel allocation.",
       ],
       tags: ["Salesforce", "ERP", "GTM Strategy", "Inventory Planning"],
     },
@@ -267,24 +276,11 @@ const CONTENT = {
       location: "Los Angeles, CA",
       dates: "May 2018 – Mar 2022",
       bullets: [
-        "Managed full product lifecycle operations across 150+ warehouses nationwide.",
+        "Managed product lifecycle operations across 150+ warehouses nationwide.",
         "Built an automated 3PL planning tool that improved planning efficiency by 55%.",
-        "Led implementation of a proprietary Shelf Allocation Tool using market data to drive sales growth and sell-through rates.",
+        "Led implementation of a proprietary Shelf Allocation Tool using market data to drive sell-through rates.",
       ],
       tags: ["3PL", "Supply Chain", "Automation", "Distribution"],
-    },
-    {
-      role: "Creator & Developer — AI Mini Games",
-      company: "Entrepreneurial / Independent",
-      location: "Los Angeles, CA",
-      dates: "Oct 2024 – Present",
-      bullets: [
-        "Used AI-assisted development (LLMs) to ship and iterate products rapidly, prioritizing speed-to-learning.",
-        "Implemented Google AdSense and data-driven monetization experiments, optimizing ad placement based on RPM, CTR, and engagement.",
-        "Built analytics pipelines to translate user behavior into actionable product and monetization insights.",
-        "Leveraged AI to generate and iterate SQL queries in MySQL to analyze gameplay events and user behavior.",
-      ],
-      tags: ["LLMs", "SQL", "MySQL", "Monetization", "Analytics"],
     },
   ],
 
@@ -320,7 +316,7 @@ const CONTENT = {
   <div class="nav-inner">
     <div class="nav-logo" id="nav-name"></div>
     <div class="nav-links">
-      <a href="#projects">Projects</a>
+      <a href="#projects">Work</a>
       <a href="#experience">Experience</a>
       <a href="#skills">Skills</a>
       <a href="#contact">Contact</a>
@@ -333,30 +329,21 @@ const CONTENT = {
   <div class="hero-glow"></div>
   <div class="hero-glow2"></div>
   <div>
-    <div class="status-pill">
-      <div class="status-dot"></div>
-      Open to AI Efficiency &amp; Operations Roles
-    </div>
     <h1 id="hero-title"></h1>
     <p class="hero-sub" id="hero-sub"></p>
     <div class="hero-btns">
-      <a id="btn-dashboard" class="btn-primary" target="_blank">View Live Dashboard →</a>
-      <a id="btn-resume" class="btn-secondary" target="_blank">Download Resume</a>
+      <a href="#projects" class="btn-primary">See What I've Built →</a>
+      <a href="#contact" class="btn-secondary">Get In Touch</a>
     </div>
   </div>
 </section>
-
-<!-- STATS -->
-<div class="stats-strip">
-  <div class="stats-inner" id="stats-strip"></div>
-</div>
 
 <!-- PROJECTS -->
 <section id="projects">
   <div class="section-inner">
     <div class="section-tag">Featured Work</div>
-    <h2>AI Tools I've <em>Actually Built</em></h2>
-    <p class="section-sub">Not mockups. Not slide decks. Real working tools — built with AI to solve real GTM and operations problems.</p>
+    <h2>Things I've <em>Actually Built</em></h2>
+    <p class="section-sub">Yes, the demos are real. No, I didn't hire engineers.</p>
 
     <div class="featured-card">
       <div class="featured-preview">
@@ -396,7 +383,10 @@ const CONTENT = {
   <div class="section-inner">
     <div class="section-tag">Background</div>
     <h2>Where I've <em>Made an Impact</em></h2>
-    <p class="section-sub">Operations and GTM leadership across Amazon, Red Bull, and high-growth startups — with AI layered in at every stage.</p>
+    <p class="section-sub">Operations and GTM leadership across Amazon, Red Bull, and high-growth startups — always finding ways to make teams faster and smarter.</p>
+
+
+
     <div class="exp-grid" id="exp-grid"></div>
   </div>
 </section>
@@ -420,9 +410,9 @@ const CONTENT = {
 <section id="contact">
   <div class="section-inner">
     <div class="contact-card">
-      <div class="section-tag" style="margin-bottom:14px">Let's Connect</div>
-      <h2>Open to the <em>Right Opportunity</em></h2>
-      <p>Looking for roles at the intersection of AI, GTM, and operations. If you're building something where that matters — let's talk.</p>
+      <div style="margin-bottom:14px"></div>
+      <h2>You Scrolled <em>This Far</em> 🥇</h2>
+      <p>Like what you see? Let's talk.</p>
       <div class="contact-links" id="contact-links"></div>
     </div>
   </div>
@@ -433,19 +423,12 @@ const CONTENT = {
 </footer>
 
 <script>
-// ── Render everything from CONTENT ──────────────────────────────
 document.getElementById('nav-name').textContent = CONTENT.name;
-
 document.getElementById('hero-title').innerHTML =
-  CONTENT.name.split(' ')[0] + ' Wynn<br/><span>' + CONTENT.title + '</span>';
+  'Harrison Wynn<br/><span>' + CONTENT.title + '</span>';
 document.getElementById('hero-sub').textContent = CONTENT.tagline;
-document.getElementById('btn-dashboard').href = CONTENT.dashboardLink;
-document.getElementById('btn-resume').href = CONTENT.resumeLink;
 
-// Stats
-document.getElementById('stats-strip').innerHTML = CONTENT.stats.map(s =>
-  `<div><div class="stat-num">${s.num}</div><div class="stat-label">${s.label}</div></div>`
-).join('');
+
 
 // Featured project
 const fp = CONTENT.featuredProject;
@@ -457,23 +440,24 @@ document.getElementById('featured-body').innerHTML = `
   </div>
   <h3>${fp.title}</h3>
   <p>${fp.description}</p>
-  <div class="feature-list">${fp.features.map(f => `<div class="feature-item">${f}</div>`).join('')}</div>
+  <div class="feature-list">${fp.features.map(f=>`<div class="feature-item">${f}</div>`).join('')}</div>
   <a href="${fp.link}" target="_blank" class="btn-primary">Launch Live Demo →</a>
 `;
 
 // Other projects
-document.getElementById('other-projects').innerHTML = CONTENT.otherProjects.map(p => `
-  <div class="proj-card">
+document.getElementById('other-projects').innerHTML = CONTENT.otherProjects.map(p=>`
+  <div class="proj-card${p.fun?' fun':''}">
+    ${p.fun?`<div class="fun-badge">${p.funLabel}</div>`:''}
     <div class="proj-icon">${p.icon}</div>
     <h3>${p.title}</h3>
     <p>${p.description}</p>
-    <div class="proj-tags">${p.tags.map(t => `<span class="proj-tag">${t}</span>`).join('')}</div>
-    ${p.link ? `<a href="${p.link}" target="_blank" class="proj-link">View Project →</a>` : ''}
+    <div class="proj-tags">${p.tags.map(t=>`<span class="proj-tag">${t}</span>`).join('')}</div>
+    ${p.link?`<a href="${p.link}" target="_blank" class="proj-link${p.fun?' pink':''}">View Project →</a>`:''}
   </div>
 `).join('');
 
 // Experience
-document.getElementById('exp-grid').innerHTML = CONTENT.experience.map(e => `
+document.getElementById('exp-grid').innerHTML = CONTENT.experience.map(e=>`
   <div class="exp-card">
     <div class="exp-header">
       <div>
@@ -483,30 +467,36 @@ document.getElementById('exp-grid').innerHTML = CONTENT.experience.map(e => `
       </div>
       <div class="exp-date">${e.dates}</div>
     </div>
-    <ul class="exp-bullets">${e.bullets.map(b => `<li>${b}</li>`).join('')}</ul>
-    <div class="exp-tags">${e.tags.map(t => `<span class="proj-tag">${t}</span>`).join('')}</div>
+    <ul class="exp-bullets">${e.bullets.map(b=>`<li>${b}</li>`).join('')}</ul>
+    <div class="exp-tags">${e.tags.map(t=>`<span class="proj-tag">${t}</span>`).join('')}</div>
   </div>
 `).join('');
 
 // Skills
-document.getElementById('skills-grid').innerHTML = CONTENT.skills.map(s => `
+document.getElementById('skills-grid').innerHTML = CONTENT.skills.map(s=>`
   <div class="skill-card">
     <h4>${s.category}</h4>
-    <div class="skill-list">${s.items.map(i => `<div class="skill-item">${i}</div>`).join('')}</div>
+    <div class="skill-list">${s.items.map(i=>`<div class="skill-item">${i}</div>`).join('')}</div>
   </div>
 `).join('');
 
 // Education
 document.getElementById('edu-school').textContent = CONTENT.education.school;
-document.getElementById('edu-degree').textContent = CONTENT.education.degree + ' · ' + CONTENT.education.minor;
+document.getElementById('edu-degree').textContent =
+  CONTENT.education.degree + ' · ' + CONTENT.education.minor;
 
 // Contact
 document.getElementById('contact-links').innerHTML = [
-  { icon:'✉️', label:'Email', href:`mailto:${CONTENT.email}` },
-  { icon:'💼', label:'LinkedIn', href:CONTENT.linkedin },
-  { icon:'🐙', label:'GitHub', href:CONTENT.github },
-  { icon:'📄', label:'Resume', href:CONTENT.resumeLink },
-].map(l => `<a href="${l.href}" target="_blank" class="contact-link"><span>${l.icon}</span> ${l.label}</a>`).join('');
+  { icon:'✉️', label:'Email Me', href:`mailto:${CONTENT.email}`, highlight:false },
+  { icon:'💼', label:'LinkedIn', href:CONTENT.linkedin, highlight:false },
+  { icon:'📄', label:'Download Resume', href:CONTENT.resumeLink, highlight:true, download:true },
+].map(l=>`
+  <a href="${l.href}" ${l.download&&CONTENT.resumeLink!='#'?'download':''} 
+    ${!l.download?'target="_blank"':''} 
+    class="contact-link${l.highlight?' highlight':''}">
+    <span>${l.icon}</span> ${l.label}
+  </a>
+`).join('');
 </script>
 </body>
 </html>
