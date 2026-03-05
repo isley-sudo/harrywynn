@@ -6,312 +6,127 @@
 <title>Harrison Wynn — AI Efficiency</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-:root{
-  --bg:#070810;--card:#0d0f1a;--border:#1a1d2e;
-  --accent:#7c6fff;--cyan:#00d4ff;--green:#00f5a0;
-  --yellow:#ffb340;--pink:#f472b6;--text:#e8eaf6;--sub:#8b90b0;
-}
+:root{--bg:#070810;--card:#0d0f1a;--border:#1a1d2e;--accent:#7c6fff;--cyan:#00d4ff;--green:#00f5a0;--yellow:#ffb340;--pink:#f472b6;--text:#e8eaf6;--sub:#8b90b0;}
 html{scroll-behavior:smooth}
 body{background:var(--bg);color:var(--text);font-family:'Inter',system-ui,sans-serif;line-height:1.6}
-
-nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(4,5,10,.9);
-  backdrop-filter:blur(16px);border-bottom:1px solid var(--border);padding:0 32px}
-.nav-inner{max-width:1100px;margin:0 auto;display:flex;justify-content:space-between;
-  align-items:center;height:56px}
-.nav-logo{font-weight:900;font-size:15px;background:linear-gradient(100deg,#fff 30%,var(--accent) 100%);
-  -webkit-background-clip:text;-webkit-text-fill-color:transparent}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(4,5,10,.9);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);padding:0 32px}
+.nav-inner{max-width:1100px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;height:56px}
+.nav-logo{font-weight:900;font-size:15px;background:linear-gradient(100deg,#fff 30%,var(--accent) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
 .nav-links{display:flex;gap:24px;align-items:center}
-.nav-links a{color:var(--sub);font-size:12px;font-weight:600;text-decoration:none;
-  letter-spacing:.5px;transition:color .15s;text-transform:uppercase}
+.nav-links a{color:var(--sub);font-size:12px;font-weight:600;text-decoration:none;letter-spacing:.5px;transition:color .15s;text-transform:uppercase}
 .nav-links a:hover{color:var(--text)}
-
-.hero{min-height:100vh;display:flex;align-items:center;justify-content:center;
-  text-align:center;padding:100px 24px 60px;position:relative;overflow:hidden}
-.hero-glow{position:absolute;width:700px;height:700px;border-radius:50%;
-  background:radial-gradient(circle,rgba(124,111,255,.13) 0%,transparent 70%);
-  top:50%;left:50%;transform:translate(-50%,-55%);pointer-events:none}
-.hero-glow2{position:absolute;width:400px;height:400px;border-radius:50%;
-  background:radial-gradient(circle,rgba(0,212,255,.07) 0%,transparent 70%);
-  top:65%;left:25%;pointer-events:none}
+.hero{min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:100px 24px 60px;position:relative;overflow:hidden}
+.hero-glow{position:absolute;width:700px;height:700px;border-radius:50%;background:radial-gradient(circle,rgba(124,111,255,.13) 0%,transparent 70%);top:50%;left:50%;transform:translate(-50%,-55%);pointer-events:none}
 h1{font-size:clamp(38px,6vw,70px);font-weight:900;line-height:1.04;letter-spacing:-2px;margin-bottom:18px}
-h1 span{background:linear-gradient(135deg,var(--accent),var(--cyan));
-  -webkit-background-clip:text;-webkit-text-fill-color:transparent}
-.hero-sub{font-size:clamp(15px,2vw,18px);color:var(--sub);max-width:560px;
-  margin:0 auto 36px;line-height:1.75}
+h1 span{background:linear-gradient(135deg,var(--accent),var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.hero-sub{font-size:clamp(15px,2vw,18px);color:var(--sub);max-width:560px;margin:0 auto 36px;line-height:1.75}
 .hero-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
-.btn-primary{background:var(--accent);color:#fff;border:none;border-radius:10px;
-  padding:12px 26px;font-size:13px;font-weight:700;cursor:pointer;
-  box-shadow:0 0 24px rgba(124,111,255,.4);transition:all .2s;text-decoration:none;display:inline-block}
+.btn-primary{background:var(--accent);color:#fff;border:none;border-radius:10px;padding:12px 26px;font-size:13px;font-weight:700;cursor:pointer;box-shadow:0 0 24px rgba(124,111,255,.4);transition:all .2s;text-decoration:none;display:inline-block}
 .btn-primary:hover{transform:translateY(-2px);box-shadow:0 0 36px rgba(124,111,255,.6)}
-.btn-secondary{background:transparent;color:var(--text);border:1px solid var(--border);
-  border-radius:10px;padding:12px 26px;font-size:13px;font-weight:700;
-  transition:all .2s;text-decoration:none;display:inline-block}
+.btn-secondary{background:transparent;color:var(--text);border:1px solid var(--border);border-radius:10px;padding:12px 26px;font-size:13px;font-weight:700;transition:all .2s;text-decoration:none;display:inline-block}
 .btn-secondary:hover{border-color:var(--accent);color:var(--accent)}
-
 section{padding:80px 24px}
 .section-inner{max-width:1100px;margin:0 auto}
-.section-tag{font-size:10px;color:var(--accent);letter-spacing:3px;font-weight:800;
-  text-transform:uppercase;margin-bottom:10px}
+.section-tag{font-size:10px;color:var(--accent);letter-spacing:3px;font-weight:800;text-transform:uppercase;margin-bottom:10px}
 h2{font-size:clamp(24px,4vw,38px);font-weight:900;letter-spacing:-1px;margin-bottom:14px}
-h2 em{font-style:normal;background:linear-gradient(135deg,var(--accent),var(--pink));
-  -webkit-background-clip:text;-webkit-text-fill-color:transparent}
+h2 em{font-style:normal;background:linear-gradient(135deg,var(--accent),var(--pink));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
 .section-sub{color:var(--sub);font-size:15px;max-width:540px;margin-bottom:44px;line-height:1.7}
-
-/* FEATURED */
-.featured-card{background:var(--card);border:1px solid var(--accent);border-radius:20px;
-  overflow:hidden;box-shadow:0 0 60px rgba(124,111,255,.15);margin-bottom:20px}
-.featured-preview{background:linear-gradient(135deg,#0d0f1a,#0a0b14);
-  padding:28px;border-bottom:1px solid var(--border);
-  display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
-.preview-glow{position:absolute;inset:0;
-  background:radial-gradient(ellipse at center,rgba(124,111,255,.1) 0%,transparent 70%)}
-.preview-mockup{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;
-  width:100%;max-width:580px;position:relative;z-index:1}
-.mock-card{background:rgba(255,255,255,.04);border:1px solid var(--border);
-  border-radius:10px;padding:12px;text-align:center}
+.featured-card{background:var(--card);border:1px solid var(--accent);border-radius:20px;overflow:hidden;box-shadow:0 0 60px rgba(124,111,255,.15);margin-bottom:20px}
+.featured-preview{background:linear-gradient(135deg,#0d0f1a,#0a0b14);padding:28px;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
+.preview-glow{position:absolute;inset:0;background:radial-gradient(ellipse at center,rgba(124,111,255,.1) 0%,transparent 70%)}
+.preview-mockup{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;width:100%;max-width:580px;position:relative;z-index:1}
+.mock-card{background:rgba(255,255,255,.04);border:1px solid var(--border);border-radius:10px;padding:12px;text-align:center}
 .mock-num{font-size:18px;font-weight:900;margin-bottom:3px}
 .mock-label{font-size:9px;color:var(--sub);text-transform:uppercase;letter-spacing:.8px}
 .mock-bar-wrap{height:4px;background:#1a1d2e;border-radius:2px;margin-top:7px;overflow:hidden}
 .mock-bar{height:100%;border-radius:2px}
 .featured-body{padding:26px 30px}
 .featured-meta{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}
-.chip{background:rgba(124,111,255,.12);color:var(--accent);border:1px solid rgba(124,111,255,.25);
-  border-radius:6px;padding:3px 10px;font-size:11px;font-weight:700}
+.chip{background:rgba(124,111,255,.12);color:var(--accent);border:1px solid rgba(124,111,255,.25);border-radius:6px;padding:3px 10px;font-size:11px;font-weight:700}
 .chip.green{background:rgba(0,245,160,.1);color:var(--green);border-color:rgba(0,245,160,.2)}
 .chip.cyan{background:rgba(0,212,255,.1);color:var(--cyan);border-color:rgba(0,212,255,.2)}
-.chip.pink{background:rgba(244,114,182,.1);color:var(--pink);border-color:rgba(244,114,182,.2)}
 .featured-body h3{font-size:20px;font-weight:900;margin-bottom:8px}
 .featured-body p{color:var(--sub);font-size:14px;line-height:1.7;margin-bottom:18px}
 .feature-list{display:grid;grid-template-columns:1fr 1fr;gap:7px;margin-bottom:22px}
 .feature-item{display:flex;align-items:flex-start;gap:7px;font-size:13px;color:var(--sub)}
 .feature-item::before{content:"✦";color:var(--accent);font-size:9px;margin-top:4px;flex-shrink:0}
-
-/* PROJECT GRID */
 .project-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:18px}
-.proj-card{background:var(--card);border:1px solid var(--border);border-radius:16px;
-  padding:22px;transition:all .2s;position:relative}
-.proj-card:hover{border-color:var(--accent);transform:translateY(-3px);
-  box-shadow:0 12px 40px rgba(124,111,255,.15)}
-.proj-card.fun{border-color:rgba(244,114,182,.3)}
-.proj-card.fun:hover{border-color:var(--pink);box-shadow:0 12px 40px rgba(244,114,182,.15)}
-.fun-badge{position:absolute;top:16px;right:16px;background:rgba(244,114,182,.12);
-  color:var(--pink);border:1px solid rgba(244,114,182,.25);border-radius:20px;
-  padding:3px 10px;font-size:10px;font-weight:800;letter-spacing:.5px}
+.proj-card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:22px;transition:all .2s;position:relative}
+.proj-card:hover{border-color:var(--accent);transform:translateY(-3px);box-shadow:0 12px 40px rgba(124,111,255,.15)}
 .proj-icon{font-size:26px;margin-bottom:12px}
 .proj-card h3{font-size:15px;font-weight:800;margin-bottom:7px}
 .proj-card p{font-size:13px;color:var(--sub);line-height:1.6;margin-bottom:14px}
 .proj-tags{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:14px}
-.proj-tag{font-size:10px;font-weight:700;color:var(--sub);background:#ffffff08;
-  border:1px solid var(--border);border-radius:5px;padding:2px 7px;
-  text-transform:uppercase;letter-spacing:.5px}
-.proj-link{font-size:12px;font-weight:700;color:var(--accent);text-decoration:none;
-  display:inline-flex;align-items:center;gap:4px}
-.proj-link.pink{color:var(--pink)}
+.proj-tag{font-size:10px;font-weight:700;color:var(--sub);background:#ffffff08;border:1px solid var(--border);border-radius:5px;padding:2px 7px;text-transform:uppercase;letter-spacing:.5px}
+.proj-link{font-size:12px;font-weight:700;color:var(--accent);text-decoration:none;display:inline-flex;align-items:center;gap:4px}
 .proj-link:hover{opacity:.8}
-
-/* EXPERIENCE */
+.bio-card{background:var(--card);border:1px solid var(--border);border-radius:20px;padding:36px 40px;display:grid;grid-template-columns:auto 1fr;gap:32px;align-items:center;background:linear-gradient(135deg,rgba(124,111,255,.06),rgba(0,212,255,.03))}
 .exp-grid{display:flex;flex-direction:column;gap:14px}
 .exp-card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:22px 26px}
 .exp-header{display:grid;grid-template-columns:1fr auto;gap:16px;align-items:start;margin-bottom:10px}
 .exp-role{font-size:16px;font-weight:800;margin-bottom:2px}
 .exp-company{font-size:13px;color:var(--accent);font-weight:700}
-.exp-date{font-size:11px;color:var(--sub);white-space:nowrap;font-weight:600;
-  background:#ffffff06;border:1px solid var(--border);border-radius:6px;
-  padding:4px 10px;height:fit-content;text-align:right}
+.exp-date{font-size:11px;color:var(--sub);white-space:nowrap;font-weight:600;background:#ffffff06;border:1px solid var(--border);border-radius:6px;padding:4px 10px;height:fit-content}
 .exp-location{font-size:11px;color:var(--sub);margin-top:1px}
 .exp-bullets{list-style:none;display:flex;flex-direction:column;gap:7px;margin-top:10px}
-.exp-bullets li{font-size:13px;color:var(--sub);line-height:1.6;
-  display:flex;align-items:flex-start;gap:8px}
+.exp-bullets li{font-size:13px;color:var(--sub);line-height:1.6;display:flex;align-items:flex-start;gap:8px}
 .exp-bullets li::before{content:"▸";color:var(--accent);flex-shrink:0;margin-top:1px}
 .exp-tags{display:flex;gap:6px;flex-wrap:wrap;margin-top:12px}
-
-/* RESUME DOWNLOAD BANNER */
-.resume-banner{background:linear-gradient(135deg,rgba(124,111,255,.1),rgba(0,212,255,.05));
-  border:1px solid rgba(124,111,255,.25);border-radius:14px;
-  padding:20px 26px;display:flex;justify-content:space-between;align-items:center;
-  margin-bottom:28px;flex-wrap:wrap;gap:14px}
-.resume-banner-text h4{font-size:15px;font-weight:800;margin-bottom:3px}
-.resume-banner-text p{font-size:13px;color:var(--sub)}
-
-/* SKILLS */
 .skills-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:14px}
 .skill-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:18px 20px}
-.skill-card h4{font-size:12px;font-weight:800;color:var(--accent);text-transform:uppercase;
-  letter-spacing:1px;margin-bottom:10px}
-.skill-list{display:flex;flex-direction:column;gap:6px}
-.skill-item{font-size:13px;color:var(--sub);display:flex;align-items:center;gap:7px}
+.skill-card h4{font-size:12px;font-weight:800;color:var(--accent);text-transform:uppercase;letter-spacing:1px;margin-bottom:10px}
+.skill-item{font-size:13px;color:var(--sub);display:flex;align-items:center;gap:7px;margin-bottom:6px}
 .skill-item::before{content:"·";color:var(--accent);font-size:18px;line-height:0}
-
-/* CONTACT */
 #contact{background:linear-gradient(180deg,var(--bg),#08051a)}
-.contact-card{background:var(--card);border:1px solid var(--accent);border-radius:20px;
-  padding:48px;text-align:center;max-width:620px;margin:0 auto;
-  box-shadow:0 0 80px rgba(124,111,255,.1)}
+.contact-card{background:var(--card);border:1px solid var(--accent);border-radius:20px;padding:48px;text-align:center;max-width:620px;margin:0 auto;box-shadow:0 0 80px rgba(124,111,255,.1)}
 .contact-card h2{font-size:30px;margin-bottom:10px}
 .contact-card p{color:var(--sub);font-size:15px;margin-bottom:28px;line-height:1.7}
 .contact-links{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
-.contact-link{display:flex;align-items:center;gap:7px;padding:10px 18px;
-  border-radius:10px;font-size:12px;font-weight:700;text-decoration:none;
-  transition:all .2s;border:1px solid var(--border);color:var(--text)}
+.contact-link{display:flex;align-items:center;gap:7px;padding:10px 18px;border-radius:10px;font-size:12px;font-weight:700;text-decoration:none;transition:all .2s;border:1px solid var(--border);color:var(--text)}
 .contact-link:hover{border-color:var(--accent);color:var(--accent)}
-.contact-link.highlight{background:var(--accent);color:#fff;border-color:var(--accent);
-  box-shadow:0 0 20px rgba(124,111,255,.4)}
+.contact-link.highlight{background:var(--accent);color:#fff;border-color:var(--accent);box-shadow:0 0 20px rgba(124,111,255,.4)}
 .contact-link.highlight:hover{transform:translateY(-2px);color:#fff}
-
-footer{text-align:center;padding:24px;color:var(--sub);font-size:11px;
-  border-top:1px solid var(--border)}
-
-@media(max-width:640px){
-  .feature-list{grid-template-columns:1fr}
-  .preview-mockup{grid-template-columns:1fr 1fr}
-  .exp-header{grid-template-columns:1fr}
-  nav .nav-links{display:none}
-  .resume-banner{flex-direction:column}
-}
+footer{text-align:center;padding:24px;color:var(--sub);font-size:11px;border-top:1px solid var(--border)}
+@media(max-width:640px){.feature-list{grid-template-columns:1fr}.preview-mockup{grid-template-columns:1fr 1fr}.exp-header{grid-template-columns:1fr}.bio-card{grid-template-columns:1fr}.nav-links{display:none}}
 </style>
 </head>
 <body>
-
-<!-- ═══════════════════════════════════════════════════════
-  ✏️  EASY EDIT ZONE — only touch this block to update
-     ↓ resumeLink: upload PDF to Google Drive → share →
-       copy link → paste below (replace the # )
-════════════════════════════════════════════════════════ -->
 <script>
 const CONTENT = {
   name: "Harrison Wynn",
   title: "AI-Powered Efficiency",
   tagline: "I use AI to build things that actually get used — dashboards, tools, games, and whatever comes next.",
   email: "harrisonwynn139@gmail.com",
-  phone: "(818) 294-5200",
   linkedin: "https://www.linkedin.com/in/harry-wynn-608b25126/",
-  resumeLink: "#",   // ← PASTE YOUR GOOGLE DRIVE PDF LINK HERE
-
+  resumeLink: "#",
   featuredProject: {
     title: "Partnerships Command Center",
     description: "A full AI-powered partnerships intelligence dashboard — no engineering team, no budget, just Claude and curiosity. Tracks rep performance, gamifies competition, predicts partner churn, and auto-generates leadership reports.",
     link: "https://harrywynn.vercel.app",
-    features: [
-      "Gamified leaderboard with live win feed",
-      "AI coaching tips per rep based on live data",
-      "Churn predictor with partner risk scoring",
-      "30/60/90 day sprint goal tracker per rep",
-      "Auto-generated leadership report",
-      "Monthly recap with one-click export",
-      "Partner priority matrix & health scoring",
-      "Pipeline funnel & revenue attainment",
-    ],
+    features: ["Gamified leaderboard with live win feed","AI coaching tips per rep based on live data","Churn predictor with partner risk scoring","30/60/90 day sprint goal tracker per rep","Auto-generated leadership report","Monthly recap with one-click export","Partner priority matrix & health scoring","Pipeline funnel & revenue attainment"],
   },
-
   otherProjects: [
-    {
-      icon: "💸",
-      title: "Spend Intelligence Dashboard",
-      description: "AI-powered spend anomaly detection, budget forecasting, and vendor consolidation tool — built for finance teams and department heads. Natural language AI queries, approval workflows, and auto-generated weekly briefs.",
-      tags: ["AI", "FinTech", "React", "Spend Analytics"],
-      link: "https://spenddash.vercel.app/",
-      fun: false,
-    },
-    {
-      icon: "🎮",
-      title: "AI Mini Games",
-      description: "Built and shipped a suite of AI-assisted browser games — because not everything has to be a boardroom deck. Monetized with AdSense, optimized with SQL-based behavior analytics, and iterated fast using LLMs.",
-      tags: ["LLMs", "Google AdSense", "MySQL", "Just for Fun"],
-      link: "",
-      fun: true,
-      funLabel: "",
-    },
-    {
-      icon: "⚡",
-      title: "Your Next Project",
-      description: "More coming. If it can be made faster, smarter, or more useful with AI — it's getting built.",
-      tags: ["AI", "TBD", "Watch This Space"],
-      link: "",
-      fun: false,
-    },
+    {icon:"💸",title:"Spend Intelligence Dashboard",description:"AI-powered spend anomaly detection, budget forecasting, and vendor consolidation tool — built for finance teams and department heads. Natural language AI queries, approval workflows, and auto-generated weekly briefs.",tags:["AI","FinTech","React","Spend Analytics"],link:"https://spenddash.vercel.app/"},
+    {icon:"📱",title:"Social Media Command Center",description:"AI-powered social intelligence dashboard covering Instagram, TikTok, LinkedIn, X, and YouTube. Viral potential scorer, best time to post heatmaps, paid vs organic ROI, AI caption generator, cultural calendar, and weekly leadership briefs.",tags:["AI","Social Media","React","Content Strategy"],link:"https://socialmediadash-ochre.vercel.app/"},
+    {icon:"🎮",title:"AI Mini Games",description:"Built and shipped a suite of AI-assisted browser games — because not everything has to be a boardroom deck. Monetized with AdSense, optimized with SQL-based behavior analytics, and iterated fast using LLMs.",tags:["LLMs","Google AdSense","MySQL","Just for Fun"],link:""},
+    {icon:"⚡",title:"More Coming Soon",description:"More AI tools in progress. If it can be built faster with AI — it's getting built.",tags:["AI","TBD","Watch This Space"],link:""},
   ],
-
   experience: [
-    {
-      role: "Operations Manager — Portfolio & Partner Strategy Lead",
-      company: "Amazon",
-      location: "Los Angeles, CA",
-      dates: "Feb 2024 – Present",
-      bullets: [
-        "Owned strategy and execution for a $1.2B portfolio of high-growth marketplace sellers, driving demand planning, risk mitigation, and seller experience at scale.",
-        "Led weekly executive business reviews, translating operational data into clear priorities for senior leadership.",
-        "Appointed Category Strategic Lead for all 2024/2025 Tentpole Events — contributed to record +16% GMS YoY.",
-        "Redesigned SKUs for e-commerce-first packaging, reducing in-transit damage and returns by $53.5M.",
-      ],
-      tags: ["Portfolio Strategy", "Executive Comms", "Marketplace Ops", "Cross-Functional"],
-    },
-    {
-      role: "AI Tools & Products — Creator",
-      company: "Independent / Entrepreneurial",
-      location: "Los Angeles, CA",
-      dates: "Ongoing",
-      bullets: [
-        "Building a growing suite of AI-powered tools spanning partnerships intelligence, real estate analysis, browser games, and workflow automation.",
-        "Using LLMs for code generation, UX iteration, and debugging — shipping fast and learning faster.",
-        "Implemented analytics pipelines and SQL-based behavior analysis to optimize product quality and monetization.",
-        "Experimented with Google AdSense monetization, optimizing ad placement based on RPM, CTR, and retention signals.",
-      ],
-      tags: ["LLMs", "SQL", "Product", "Monetization", "Analytics"],
-    },
-    {
-      role: "Operations Manager",
-      company: "The Center (CPG Incubator Startup)",
-      location: "Los Angeles, CA",
-      dates: "Mar 2022 – Feb 2024",
-      bullets: [
-        "Built SKU segmentation strategy to prioritize high-growth products and reduce carrying costs.",
-        "Created integrated planning model using Salesforce and ERP data to sharpen operational execution.",
-        "Collaborated with Sales & Marketing to optimize go-to-market timing and channel allocation.",
-      ],
-      tags: ["Salesforce", "ERP", "GTM Strategy", "Inventory Planning"],
-    },
-    {
-      role: "Supply Operations & Distribution Planning",
-      company: "Red Bull North America",
-      location: "Los Angeles, CA",
-      dates: "May 2018 – Mar 2022",
-      bullets: [
-        "Managed product lifecycle operations across 150+ warehouses nationwide.",
-        "Built an automated 3PL planning tool that improved planning efficiency by 55%.",
-        "Led implementation of a proprietary Shelf Allocation Tool using market data to drive sell-through rates.",
-      ],
-      tags: ["3PL", "Supply Chain", "Automation", "Distribution"],
-    },
+    {role:"Operations Manager — Portfolio & Partner Strategy Lead",company:"Amazon",location:"Los Angeles, CA",dates:"Feb 2024 – Present",bullets:["Owned strategy and execution for a $1.2B portfolio of high-growth marketplace sellers.","Led weekly executive business reviews, translating operational data into clear priorities.","Appointed Category Strategic Lead for all 2024/2025 Tentpole Events — contributed to record +16% GMS YoY.","Redesigned SKUs for e-commerce-first packaging, reducing returns by $53.5M."],tags:["Portfolio Strategy","Executive Comms","Marketplace Ops"]},
+    {role:"AI Tools & Products — Creator",company:"Independent / Entrepreneurial",location:"Los Angeles, CA",dates:"Ongoing",bullets:["Building a growing suite of AI-powered tools spanning partnerships intelligence, social media, spend analytics, and more.","Using LLMs for code generation, UX iteration, and debugging — shipping fast and learning faster.","Built analytics pipelines and SQL-based behavior analysis to optimize product quality."],tags:["LLMs","SQL","Product","Analytics"]},
+    {role:"Operations Manager",company:"The Center (CPG Incubator Startup)",location:"Los Angeles, CA",dates:"Mar 2022 – Feb 2024",bullets:["Built SKU segmentation strategy to prioritize high-growth products and reduce carrying costs.","Created integrated planning model using Salesforce and ERP data.","Collaborated with Sales & Marketing to optimize go-to-market timing and channel allocation."],tags:["Salesforce","ERP","GTM Strategy"]},
+    {role:"Supply Operations & Distribution Planning",company:"Red Bull North America",location:"Los Angeles, CA",dates:"May 2018 – Mar 2022",bullets:["Managed product lifecycle operations across 150+ warehouses nationwide.","Built an automated 3PL planning tool that improved planning efficiency by 55%.","Led implementation of a proprietary Shelf Allocation Tool using market data."],tags:["3PL","Supply Chain","Automation"]},
   ],
-
   skills: [
-    {
-      category: "Operations",
-      items: ["Strategic Operations", "Process Design & Optimization", "Scalable Systems Design", "Performance Monitoring & KPIs"],
-    },
-    {
-      category: "AI & Technical",
-      items: ["LLM-Assisted Development", "Prompt Engineering", "SQL / MySQL", "Analytics Pipelines"],
-    },
-    {
-      category: "GTM & Revenue",
-      items: ["Marketplace Operations", "Partner Strategy", "Go-to-Market Execution", "Demand Planning"],
-    },
-    {
-      category: "Leadership",
-      items: ["Executive Communication", "Cross-Functional Leadership", "Stakeholder Management", "Data-Driven Decision Making"],
-    },
+    {category:"Operations",items:["Strategic Operations","Process Design & Optimization","Scalable Systems Design","Performance Monitoring & KPIs"]},
+    {category:"AI & Technical",items:["LLM-Assisted Development","Prompt Engineering","SQL / MySQL","Analytics Pipelines"]},
+    {category:"GTM & Revenue",items:["Marketplace Operations","Partner Strategy","Go-to-Market Execution","Demand Planning"]},
+    {category:"Leadership",items:["Executive Communication","Cross-Functional Leadership","Stakeholder Management","Data-Driven Decision Making"]},
   ],
-
-  education: {
-    school: "University of California, Los Angeles (UCLA)",
-    degree: "Bachelor of Arts, Economics",
-    minor: "Minor in Urban and Regional Development",
-  },
+  education: {school:"University of California, Los Angeles (UCLA)",degree:"Bachelor of Arts, Economics",minor:"Minor in Urban and Regional Development"},
 };
 </script>
 
-<!-- NAV -->
 <nav>
   <div class="nav-inner">
     <div class="nav-logo" id="nav-name"></div>
@@ -325,10 +140,8 @@ const CONTENT = {
   </div>
 </nav>
 
-<!-- HERO -->
 <section class="hero" id="home">
   <div class="hero-glow"></div>
-  <div class="hero-glow2"></div>
   <div>
     <h1 id="hero-title"></h1>
     <p class="hero-sub" id="hero-sub"></p>
@@ -339,83 +152,48 @@ const CONTENT = {
   </div>
 </section>
 
-<!-- BIO -->
 <section id="bio" style="padding:0 24px 60px">
   <div class="section-inner">
-    <div style="background:var(--card);border:1px solid var(--border);border-radius:20px;
-      padding:36px 40px;display:grid;grid-template-columns:auto 1fr;gap:32px;align-items:center;
-      background:linear-gradient(135deg,rgba(124,111,255,.06),rgba(0,212,255,.03))">
+    <div class="bio-card">
       <div style="font-size:64px;line-height:1">🤙</div>
       <div>
-        <div style="font-size:10px;color:var(--accent);letter-spacing:3px;font-weight:800;
-          text-transform:uppercase;margin-bottom:10px">A Bit About Me</div>
-        <p style="font-size:16px;color:var(--text);line-height:1.8;max-width:680px">
-          I'm an extrovert who builds introverted things. Based in LA, newly married, and co-parenting 
-          a genuinely famous dog named Bad Boy Bru, who is handling his fame better than most. I thrive 
-          in rooms full of people, good energy, and bad ideas that somehow turn into great ones. Beach 
-          volleyball, ski trips, any excuse to get a group together — I'm there. And when I'm not, I'm 
-          building things with AI. Curious by nature, energized by people, and genuinely excited by the 
-          gap between how things work and how they could.
-        </p>
+        <div class="section-tag">A Bit About Me</div>
+        <p style="font-size:16px;color:var(--text);line-height:1.8;max-width:680px">I'm an extrovert who builds introverted things. Based in LA, newly married, and co-parenting a genuinely famous dog named Bad Boy Bru, who is handling his fame better than most. I thrive in rooms full of people, good energy, and bad ideas that somehow turn into great ones. Beach volleyball, ski trips, any excuse to get a group together — I'm there. And when I'm not, I'm building things with AI. Curious by nature, energized by people, and genuinely excited by the gap between how things work and how they could.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- PROJECTS -->
 <section id="projects">
   <div class="section-inner">
     <div class="section-tag">Featured Work</div>
     <h2>Built, Shipped, <em>Live</em></h2>
     <p class="section-sub">Built by one human, one AI, and an unreasonable amount of curiosity.</p>
-
     <div class="featured-card">
       <div class="featured-preview">
         <div class="preview-glow"></div>
         <div class="preview-mockup">
-          <div class="mock-card">
-            <div class="mock-num" style="color:#00f5a0">$2.0M</div>
-            <div class="mock-label">Team ARR</div>
-            <div class="mock-bar-wrap"><div class="mock-bar" style="width:78%;background:#00f5a0"></div></div>
-          </div>
-          <div class="mock-card">
-            <div class="mock-num" style="color:#7c6fff">🥇 Priya</div>
-            <div class="mock-label">Top Rep</div>
-            <div class="mock-bar-wrap"><div class="mock-bar" style="width:98%;background:#7c6fff"></div></div>
-          </div>
-          <div class="mock-card">
-            <div class="mock-num" style="color:#ffb340">66%</div>
-            <div class="mock-label">Attainment</div>
-            <div class="mock-bar-wrap"><div class="mock-bar" style="width:66%;background:#ffb340"></div></div>
-          </div>
-          <div class="mock-card">
-            <div class="mock-num" style="color:#ff4466">3</div>
-            <div class="mock-label">Churn Risk</div>
-            <div class="mock-bar-wrap"><div class="mock-bar" style="width:25%;background:#ff4466"></div></div>
-          </div>
+          <div class="mock-card"><div class="mock-num" style="color:#00f5a0">$2.0M</div><div class="mock-label">Team ARR</div><div class="mock-bar-wrap"><div class="mock-bar" style="width:78%;background:#00f5a0"></div></div></div>
+          <div class="mock-card"><div class="mock-num" style="color:#7c6fff">🥇 Priya</div><div class="mock-label">Top Rep</div><div class="mock-bar-wrap"><div class="mock-bar" style="width:98%;background:#7c6fff"></div></div></div>
+          <div class="mock-card"><div class="mock-num" style="color:#ffb340">66%</div><div class="mock-label">Attainment</div><div class="mock-bar-wrap"><div class="mock-bar" style="width:66%;background:#ffb340"></div></div></div>
+          <div class="mock-card"><div class="mock-num" style="color:#ff4466">3</div><div class="mock-label">Churn Risk</div><div class="mock-bar-wrap"><div class="mock-bar" style="width:25%;background:#ff4466"></div></div></div>
         </div>
       </div>
       <div class="featured-body" id="featured-body"></div>
     </div>
-
     <div class="project-grid" id="other-projects"></div>
   </div>
 </section>
 
-<!-- EXPERIENCE -->
 <section id="experience" style="background:linear-gradient(180deg,transparent,rgba(124,111,255,.02),transparent)">
   <div class="section-inner">
     <div class="section-tag">Background</div>
     <h2>Work <em>Experience</em></h2>
     <p class="section-sub">Operations and GTM leadership across Amazon, Red Bull, and high-growth startups — always finding ways to make teams faster and smarter.</p>
-
-
-
     <div class="exp-grid" id="exp-grid"></div>
   </div>
 </section>
 
-<!-- SKILLS -->
 <section id="skills">
   <div class="section-inner">
     <div class="section-tag">Capabilities</div>
@@ -423,14 +201,13 @@ const CONTENT = {
     <p class="section-sub">A blend of operational depth, technical curiosity, and AI fluency.</p>
     <div class="skills-grid" id="skills-grid"></div>
     <div style="margin-top:20px;background:var(--card);border:1px solid var(--border);border-radius:14px;padding:20px 24px">
-      <div style="font-size:10px;color:var(--accent);letter-spacing:2px;font-weight:800;text-transform:uppercase;margin-bottom:10px">Education</div>
+      <div class="section-tag">Education</div>
       <div style="font-weight:800;font-size:15px" id="edu-school"></div>
       <div style="color:var(--sub);font-size:13px;margin-top:3px" id="edu-degree"></div>
     </div>
   </div>
 </section>
 
-<!-- CONTACT -->
 <section id="contact">
   <div class="section-inner">
     <div class="contact-card">
@@ -442,19 +219,13 @@ const CONTENT = {
   </div>
 </section>
 
-<footer>
-  Built with AI · No template · Just curiosity and Claude &nbsp;·&nbsp; © 2026
-</footer>
+<footer>Built with AI · No template · Just curiosity and Claude &nbsp;·&nbsp; © 2026</footer>
 
 <script>
 document.getElementById('nav-name').textContent = CONTENT.name;
-document.getElementById('hero-title').innerHTML =
-  'Harrison Wynn<br/><span>' + CONTENT.title + '</span>';
+document.getElementById('hero-title').innerHTML = 'Harrison Wynn<br/><span>' + CONTENT.title + '</span>';
 document.getElementById('hero-sub').textContent = CONTENT.tagline;
 
-
-
-// Featured project
 const fp = CONTENT.featuredProject;
 document.getElementById('featured-body').innerHTML = `
   <div class="featured-meta">
@@ -468,19 +239,16 @@ document.getElementById('featured-body').innerHTML = `
   <a href="${fp.link}" target="_blank" class="btn-primary">Launch Live Demo →</a>
 `;
 
-// Other projects
 document.getElementById('other-projects').innerHTML = CONTENT.otherProjects.map(p=>`
-  <div class="proj-card${p.fun?' fun':''}">
-    ${p.fun?`<div class="fun-badge">${p.funLabel}</div>`:''}
+  <div class="proj-card">
     <div class="proj-icon">${p.icon}</div>
     <h3>${p.title}</h3>
     <p>${p.description}</p>
     <div class="proj-tags">${p.tags.map(t=>`<span class="proj-tag">${t}</span>`).join('')}</div>
-    ${p.link?`<a href="${p.link}" target="_blank" class="proj-link${p.fun?' pink':''}">View Project →</a>`:''}
+    ${p.link?`<a href="${p.link}" target="_blank" class="proj-link">View Project →</a>`:''}
   </div>
 `).join('');
 
-// Experience
 document.getElementById('exp-grid').innerHTML = CONTENT.experience.map(e=>`
   <div class="exp-card">
     <div class="exp-header">
@@ -496,31 +264,21 @@ document.getElementById('exp-grid').innerHTML = CONTENT.experience.map(e=>`
   </div>
 `).join('');
 
-// Skills
 document.getElementById('skills-grid').innerHTML = CONTENT.skills.map(s=>`
   <div class="skill-card">
     <h4>${s.category}</h4>
-    <div class="skill-list">${s.items.map(i=>`<div class="skill-item">${i}</div>`).join('')}</div>
+    ${s.items.map(i=>`<div class="skill-item">${i}</div>`).join('')}
   </div>
 `).join('');
 
-// Education
 document.getElementById('edu-school').textContent = CONTENT.education.school;
-document.getElementById('edu-degree').textContent =
-  CONTENT.education.degree + ' · ' + CONTENT.education.minor;
+document.getElementById('edu-degree').textContent = CONTENT.education.degree + ' · ' + CONTENT.education.minor;
 
-// Contact
 document.getElementById('contact-links').innerHTML = [
-  { icon:'✉️', label:'Email Me', href:`mailto:${CONTENT.email}`, highlight:false },
-  { icon:'💼', label:'LinkedIn', href:CONTENT.linkedin, highlight:false },
-  { icon:'📄', label:'Download Resume', href:CONTENT.resumeLink, highlight:true, download:true },
-].map(l=>`
-  <a href="${l.href}" ${l.download&&CONTENT.resumeLink!='#'?'download':''} 
-    ${!l.download?'target="_blank"':''} 
-    class="contact-link${l.highlight?' highlight':''}">
-    <span>${l.icon}</span> ${l.label}
-  </a>
-`).join('');
+  {icon:'✉️',label:'Email Me',href:`mailto:${CONTENT.email}`,highlight:false},
+  {icon:'💼',label:'LinkedIn',href:CONTENT.linkedin,highlight:false},
+  {icon:'📄',label:'Download Resume',href:CONTENT.resumeLink,highlight:true,download:true},
+].map(l=>`<a href="${l.href}" ${l.download&&CONTENT.resumeLink!='#'?'download':''} ${!l.download?'target="_blank"':''} class="contact-link${l.highlight?' highlight':''}""><span>${l.icon}</span> ${l.label}</a>`).join('');
 </script>
 </body>
 </html>
