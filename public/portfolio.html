@@ -60,7 +60,7 @@ h2 em{font-style:normal;background:linear-gradient(135deg,var(--accent),var(--pi
 .proj-tag{font-size:10px;font-weight:700;color:var(--sub);background:#ffffff08;border:1px solid var(--border);border-radius:5px;padding:2px 7px;text-transform:uppercase;letter-spacing:.5px}
 .proj-link{font-size:12px;font-weight:700;color:var(--accent);text-decoration:none}
 .proj-link:hover{opacity:.8}
-.bio-card{background:var(--card);border:1px solid var(--border);border-radius:20px;padding:36px 40px;display:grid;grid-template-columns:auto 1fr;gap:32px;align-items:center;background:linear-gradient(135deg,rgba(124,111,255,.06),rgba(0,212,255,.03))}
+.bio-card{border:1px solid var(--border);border-radius:20px;padding:36px 40px;display:grid;grid-template-columns:auto 1fr;gap:32px;align-items:center;background:linear-gradient(135deg,rgba(124,111,255,.06),rgba(0,212,255,.03))}
 .exp-grid{display:flex;flex-direction:column;gap:14px}
 .exp-card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:22px 26px}
 .exp-header{display:grid;grid-template-columns:1fr auto;gap:16px;align-items:start;margin-bottom:10px}
@@ -91,45 +91,34 @@ footer{text-align:center;padding:24px;color:var(--sub);font-size:11px;border-top
 </style>
 </head>
 <body>
+
 <script>
-const CONTENT = {
-  name: "Harrison Wynn",
-  title: "AI-Powered Efficiency",
-  tagline: "I use AI to build things that actually get used — dashboards, tools, games, and whatever comes next.",
-  email: "harrisonwynn139@gmail.com",
-  linkedin: "https://www.linkedin.com/in/harry-wynn-608b25126/",
-  resumeLink: "#",
-  featuredProject: {
-    title: "Partnerships Command Center",
-    description: "A full AI-powered partnerships intelligence dashboard — no engineering team, no spend. Tracks rep performance, gamifies competition, predicts partner churn, and auto-generates leadership reports.",
-    link: "https://harrywynn.vercel.app",
-    features: ["Gamified leaderboard with live win feed","AI coaching tips per rep based on live data","Churn predictor with partner risk scoring","30/60/90 day sprint goal tracker per rep","Auto-generated leadership report","Monthly recap with one-click export","Partner priority matrix and health scoring","Pipeline funnel and revenue attainment"],
-  },
-  otherProjects: [
-    { icon:"💸", title:"Spend Intelligence Dashboard", description:"AI-powered spend anomaly detection, budget forecasting, and vendor consolidation tool built for finance teams and department heads. Natural language AI queries, approval workflows, and auto-generated weekly briefs.", tags:["AI","FinTech","React","Spend Analytics"], link:"https://spenddash.vercel.app/" },
-    { icon:"📱", title:"Social Media Command Center", description:"AI-powered social intelligence dashboard covering Instagram, TikTok, LinkedIn, X, and YouTube. Viral potential scorer, best time to post heatmaps, paid vs organic ROI, AI caption generator, and weekly leadership briefs.", tags:["AI","Social Media","React","Content Strategy"], link:"https://marketingsocialdash.vercel.app/" },
-    { icon:"⚡", title:"LeadIQ — B2B Lead Intelligence", description:"AI-powered B2B lead prospector with fit scoring, personalized outreach sequences, cadence controls, pipeline tracker, and analytics. Chat with AI to find leads by industry, size, or geography.", tags:["AI","B2B","Lead Gen","Sales"], link:"https://leadgen-six-kappa.vercel.app/" },
-    { icon:"🎮", title:"AI Mini Games", description:"A suite of AI-built browser games — including the breakout hit brusgottapoo.com, made for my celeb pup Bad Boy Bru and his fans. 16,000 games played and 137 hours of combined playtime in the first few days after launch. Monetized with AdSense, optimized with SQL-based behavior analytics, and iterated fast using LLMs.", tags:["LLMs","Google AdSense","MySQL","Just for Fun"], link:"https://brusgottapoo.com/" },
-  ],
-  experience: [
-    { role:"Operations Manager — Portfolio & Partner Strategy Lead", company:"Amazon", location:"Los Angeles, CA", dates:"Feb 2024 – Present", bullets:["Owned strategy and execution for a $1.2B portfolio of high-growth marketplace sellers.","Led weekly executive business reviews, translating operational data into clear priorities.","Appointed Category Strategic Lead for all 2024/2025 Tentpole Events — contributed to record +16% GMS YoY.","Redesigned SKUs for e-commerce-first packaging, reducing returns by $53.5M."], tags:["Portfolio Strategy","Executive Comms","Marketplace Ops"] },
-    { role:"AI Tools and Products — Creator", company:"Independent / Entrepreneurial", location:"Los Angeles, CA", dates:"Ongoing", bullets:["Building a growing suite of AI-powered tools spanning partnerships intelligence, social media, spend analytics, and more.","Using LLMs for code generation, UX iteration, and debugging — shipping fast and learning faster.","Built analytics pipelines and SQL-based behavior analysis to optimize product quality."], tags:["LLMs","SQL","Product","Analytics"] },
-    { role:"Operations Manager", company:"The Center (CPG Incubator Startup)", location:"Los Angeles, CA", dates:"Mar 2022 – Feb 2024", bullets:["Built SKU segmentation strategy to prioritize high-growth products and reduce carrying costs.","Created integrated planning model using Salesforce and ERP data.","Collaborated with Sales and Marketing to optimize go-to-market timing and channel allocation."], tags:["Salesforce","ERP","GTM Strategy"] },
-    { role:"Supply Operations and Distribution Planning", company:"Red Bull North America", location:"Los Angeles, CA", dates:"May 2018 – Mar 2022", bullets:["Managed product lifecycle operations across 150+ warehouses nationwide.","Built an automated 3PL planning tool that improved planning efficiency by 55%.","Led implementation of a proprietary Shelf Allocation Tool using market data."], tags:["3PL","Supply Chain","Automation"] },
-  ],
-  skills: [
-    { category:"Operations", items:["Strategic Operations","Process Design and Optimization","Scalable Systems Design","Performance Monitoring and KPIs"] },
-    { category:"AI and Technical", items:["LLM-Assisted Development","Prompt Engineering","SQL / MySQL","Analytics Pipelines"] },
-    { category:"GTM and Revenue", items:["Marketplace Operations","Partner Strategy","Go-to-Market Execution","Demand Planning"] },
-    { category:"Leadership", items:["Executive Communication","Cross-Functional Leadership","Stakeholder Management","Data-Driven Decision Making"] },
-  ],
-  education: { school:"University of California, Los Angeles (UCLA)", degree:"Bachelor of Arts, Economics", minor:"Minor in Urban and Regional Development" },
-};
+var PROJECTS = [
+  { icon:"💸", title:"Spend Intelligence Dashboard", desc:"AI-powered spend anomaly detection, budget forecasting, and vendor consolidation tool built for finance teams and department heads. Natural language AI queries, approval workflows, and auto-generated weekly briefs.", tags:["AI","FinTech","React","Spend Analytics"], link:"https://spenddash.vercel.app/" },
+  { icon:"📱", title:"Social Media Command Center", desc:"AI-powered social intelligence dashboard covering Instagram, TikTok, LinkedIn, X, and YouTube. Viral potential scorer, best time to post heatmaps, paid vs organic ROI, AI caption generator, and weekly leadership briefs.", tags:["AI","Social Media","React","Content Strategy"], link:"https://marketingsocialdash.vercel.app/" },
+  { icon:"⚡", title:"LeadIQ — B2B Lead Intelligence", desc:"AI-powered B2B lead prospector with fit scoring, personalized outreach sequences, cadence controls, pipeline tracker, and analytics. Chat with AI to find leads by industry, size, or geography.", tags:["AI","B2B","Lead Gen","Sales"], link:"https://leadgen-six-kappa.vercel.app/" },
+  { icon:"🏠", title:"UnderwriteAI — Real Estate Analyzer", desc:"AI-powered investment property underwriting tool that aggregates live data from RentCast, FRED, and the Census API to auto-estimate rents, cash flow, NOI, cap rate, DSCR, and more. OpenAI synthesizes everything into a structured deal memo — no spreadsheet required.", tags:["AI","Real Estate","PropTech","Underwriting"], link:"https://hairywin.github.io/underwriteai/" },
+  { icon:"🎮", title:"AI Mini Games", desc:"A suite of AI-built browser games — including the breakout hit brusgottapoo.com, made for my celeb pup Bad Boy Bru and his fans. 16,000 games played and 137 hours of combined playtime in the first few days after launch. Monetized with AdSense, optimized with SQL-based behavior analytics, and iterated fast using LLMs.", tags:["LLMs","Google AdSense","MySQL","Just for Fun"], link:"https://brusgottapoo.com/" },
+];
+
+var EXPERIENCE = [
+  { role:"Operations Manager — Portfolio & Partner Strategy Lead", company:"Amazon", location:"Los Angeles, CA", dates:"Feb 2024 – Present", bullets:["Owned strategy and execution for a $1.2B portfolio of high-growth marketplace sellers.","Led weekly executive business reviews, translating operational data into clear priorities.","Appointed Category Strategic Lead for all 2024/2025 Tentpole Events — contributed to record +16% GMS YoY.","Redesigned SKUs for e-commerce-first packaging, reducing returns by $53.5M."], tags:["Portfolio Strategy","Executive Comms","Marketplace Ops"] },
+  { role:"AI Tools and Products — Creator", company:"Independent / Entrepreneurial", location:"Los Angeles, CA", dates:"Ongoing", bullets:["Building a growing suite of AI-powered tools spanning partnerships intelligence, social media, spend analytics, and more.","Using LLMs for code generation, UX iteration, and debugging — shipping fast and learning faster.","Built analytics pipelines and SQL-based behavior analysis to optimize product quality."], tags:["LLMs","SQL","Product","Analytics"] },
+  { role:"Operations Manager", company:"The Center (CPG Incubator Startup)", location:"Los Angeles, CA", dates:"Mar 2022 – Feb 2024", bullets:["Built SKU segmentation strategy to prioritize high-growth products and reduce carrying costs.","Created integrated planning model using Salesforce and ERP data.","Collaborated with Sales and Marketing to optimize go-to-market timing and channel allocation."], tags:["Salesforce","ERP","GTM Strategy"] },
+  { role:"Supply Operations and Distribution Planning", company:"Red Bull North America", location:"Los Angeles, CA", dates:"May 2018 – Mar 2022", bullets:["Managed product lifecycle operations across 150+ warehouses nationwide.","Built an automated 3PL planning tool that improved planning efficiency by 55%.","Led implementation of a proprietary Shelf Allocation Tool using market data."], tags:["3PL","Supply Chain","Automation"] },
+];
+
+var SKILLS = [
+  { category:"Operations", items:["Strategic Operations","Process Design and Optimization","Scalable Systems Design","Performance Monitoring and KPIs"] },
+  { category:"AI and Technical", items:["LLM-Assisted Development","Prompt Engineering","SQL / MySQL","Analytics Pipelines"] },
+  { category:"GTM and Revenue", items:["Marketplace Operations","Partner Strategy","Go-to-Market Execution","Demand Planning"] },
+  { category:"Leadership", items:["Executive Communication","Cross-Functional Leadership","Stakeholder Management","Data-Driven Decision Making"] },
+];
 </script>
 
 <nav>
   <div class="nav-inner">
-    <div class="nav-logo" id="nav-name"></div>
+    <div class="nav-logo">Harrison Wynn</div>
     <div class="nav-links">
       <a href="#bio">About Me</a>
       <a href="#projects">AI Projects</a>
@@ -143,8 +132,8 @@ const CONTENT = {
 <section class="hero" id="home">
   <div class="hero-glow"></div>
   <div>
-    <h1 id="hero-title"></h1>
-    <p class="hero-sub" id="hero-sub"></p>
+    <h1>Harrison Wynn<br/><span>AI-Powered Efficiency</span></h1>
+    <p class="hero-sub">I use AI to build things that actually get used — dashboards, tools, games, and whatever comes next.</p>
     <div class="hero-btns">
       <a href="#projects" class="btn-primary">See What I've Built →</a>
       <a href="#contact" class="btn-secondary">Get In Touch</a>
@@ -169,6 +158,7 @@ const CONTENT = {
     <div class="section-tag">Featured Work</div>
     <h2>Built, Shipped, <em>Live</em></h2>
     <p class="section-sub">Built by one human, one AI, and an unreasonable amount of curiosity.</p>
+
     <div class="featured-card">
       <div class="featured-preview">
         <div class="preview-glow"></div>
@@ -179,8 +169,28 @@ const CONTENT = {
           <div class="mock-card"><div class="mock-num" style="color:#ff4466">3</div><div class="mock-label">Churn Risk</div><div class="mock-bar-wrap"><div class="mock-bar" style="width:25%;background:#ff4466"></div></div></div>
         </div>
       </div>
-      <div class="featured-body" id="featured-body"></div>
+      <div class="featured-body">
+        <div class="featured-meta">
+          <span class="chip">⭐ Featured Project</span>
+          <span class="chip green">Live Demo</span>
+          <span class="chip cyan">Built with Claude AI</span>
+        </div>
+        <h3>Partnerships Command Center</h3>
+        <p>A full AI-powered partnerships intelligence dashboard — no engineering team, no spend. Tracks rep performance, gamifies competition, predicts partner churn, and auto-generates leadership reports.</p>
+        <div class="feature-list">
+          <div class="feature-item">Gamified leaderboard with live win feed</div>
+          <div class="feature-item">AI coaching tips per rep based on live data</div>
+          <div class="feature-item">Churn predictor with partner risk scoring</div>
+          <div class="feature-item">30/60/90 day sprint goal tracker per rep</div>
+          <div class="feature-item">Auto-generated leadership report</div>
+          <div class="feature-item">Monthly recap with one-click export</div>
+          <div class="feature-item">Partner priority matrix and health scoring</div>
+          <div class="feature-item">Pipeline funnel and revenue attainment</div>
+        </div>
+        <a href="https://harrywynn.vercel.app" target="_blank" class="btn-primary">Launch Live Demo →</a>
+      </div>
     </div>
+
     <div class="project-grid" id="other-projects"></div>
   </div>
 </section>
@@ -202,8 +212,8 @@ const CONTENT = {
     <div class="skills-grid" id="skills-grid"></div>
     <div style="margin-top:20px;background:var(--card);border:1px solid var(--border);border-radius:14px;padding:20px 24px">
       <div class="section-tag">Education</div>
-      <div style="font-weight:800;font-size:15px" id="edu-school"></div>
-      <div style="color:var(--sub);font-size:13px;margin-top:3px" id="edu-degree"></div>
+      <div style="font-weight:800;font-size:15px">University of California, Los Angeles (UCLA)</div>
+      <div style="color:var(--sub);font-size:13px;margin-top:3px">Bachelor of Arts, Economics · Minor in Urban and Regional Development</div>
     </div>
   </div>
 </section>
@@ -213,7 +223,11 @@ const CONTENT = {
     <div class="contact-card">
       <h2>You Scrolled <em>This Far</em> 🥇</h2>
       <p>Like what you see? Let's talk.</p>
-      <div class="contact-links" id="contact-links"></div>
+      <div class="contact-links">
+        <a href="mailto:harrisonwynn139@gmail.com" class="contact-link"><span>✉️</span> Email Me</a>
+        <a href="https://www.linkedin.com/in/harry-wynn-608b25126/" target="_blank" class="contact-link"><span>💼</span> LinkedIn</a>
+        <a href="#" class="contact-link highlight"><span>📄</span> Download Resume</a>
+      </div>
     </div>
   </div>
 </section>
@@ -221,27 +235,17 @@ const CONTENT = {
 <footer>Built with AI · No template · Just curiosity and Claude &nbsp;·&nbsp; © 2026</footer>
 
 <script>
-document.getElementById('nav-name').textContent = CONTENT.name;
-document.getElementById('hero-title').innerHTML = 'Harrison Wynn<br/><span>' + CONTENT.title + '</span>';
-document.getElementById('hero-sub').textContent = CONTENT.tagline;
+document.getElementById('other-projects').innerHTML = PROJECTS.map(function(p){
+  return '<div class="proj-card"><div class="proj-icon">'+p.icon+'</div><h3>'+p.title+'</h3><p>'+p.desc+'</p><div class="proj-tags">'+p.tags.map(function(t){return '<span class="proj-tag">'+t+'</span>';}).join('')+'</div>'+(p.link?'<a href="'+p.link+'" target="_blank" class="proj-link">View Project →</a>':'')+'</div>';
+}).join('');
 
-const fp = CONTENT.featuredProject;
-document.getElementById('featured-body').innerHTML = '<div class="featured-meta"><span class="chip">⭐ Featured Project</span><span class="chip green">Live Demo</span><span class="chip cyan">Built with Claude AI</span></div><h3>' + fp.title + '</h3><p>' + fp.description + '</p><div class="feature-list">' + fp.features.map(f=>'<div class="feature-item">'+f+'</div>').join('') + '</div><a href="' + fp.link + '" target="_blank" class="btn-primary">Launch Live Demo →</a>';
+document.getElementById('exp-grid').innerHTML = EXPERIENCE.map(function(e){
+  return '<div class="exp-card"><div class="exp-header"><div><div class="exp-role">'+e.role+'</div><div class="exp-company">'+e.company+'</div><div class="exp-location">'+e.location+'</div></div><div class="exp-date">'+e.dates+'</div></div><ul class="exp-bullets">'+e.bullets.map(function(b){return '<li>'+b+'</li>';}).join('')+'</ul><div class="exp-tags">'+e.tags.map(function(t){return '<span class="proj-tag">'+t+'</span>';}).join('')+'</div></div>';
+}).join('');
 
-document.getElementById('other-projects').innerHTML = CONTENT.otherProjects.map(p=>'<div class="proj-card"><div class="proj-icon">'+p.icon+'</div><h3>'+p.title+'</h3><p>'+p.description+'</p><div class="proj-tags">'+p.tags.map(t=>'<span class="proj-tag">'+t+'</span>').join('')+'</div>'+(p.link?'<a href="'+p.link+'" target="_blank" class="proj-link">View Project →</a>':'')+'</div>').join('');
-
-document.getElementById('exp-grid').innerHTML = CONTENT.experience.map(e=>'<div class="exp-card"><div class="exp-header"><div><div class="exp-role">'+e.role+'</div><div class="exp-company">'+e.company+'</div><div class="exp-location">'+e.location+'</div></div><div class="exp-date">'+e.dates+'</div></div><ul class="exp-bullets">'+e.bullets.map(b=>'<li>'+b+'</li>').join('')+'</ul><div class="exp-tags">'+e.tags.map(t=>'<span class="proj-tag">'+t+'</span>').join('')+'</div></div>').join('');
-
-document.getElementById('skills-grid').innerHTML = CONTENT.skills.map(s=>'<div class="skill-card"><h4>'+s.category+'</h4>'+s.items.map(i=>'<div class="skill-item">'+i+'</div>').join('')+'</div>').join('');
-
-document.getElementById('edu-school').textContent = CONTENT.education.school;
-document.getElementById('edu-degree').textContent = CONTENT.education.degree + ' · ' + CONTENT.education.minor;
-
-document.getElementById('contact-links').innerHTML = [
-  {icon:'✉️',label:'Email Me',href:'mailto:'+CONTENT.email,highlight:false},
-  {icon:'💼',label:'LinkedIn',href:CONTENT.linkedin,highlight:false},
-  {icon:'📄',label:'Download Resume',href:CONTENT.resumeLink,highlight:true},
-].map(l=>'<a href="'+l.href+'" '+(l.highlight?'':'target="_blank"')+' class="contact-link'+(l.highlight?' highlight':'')+'"><span>'+l.icon+'</span> '+l.label+'</a>').join('');
+document.getElementById('skills-grid').innerHTML = SKILLS.map(function(s){
+  return '<div class="skill-card"><h4>'+s.category+'</h4>'+s.items.map(function(i){return '<div class="skill-item">'+i+'</div>';}).join('')+'</div>';
+}).join('');
 </script>
 </body>
 </html>
