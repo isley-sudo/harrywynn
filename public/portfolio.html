@@ -50,7 +50,7 @@ h2 em{font-style:normal;background:linear-gradient(135deg,var(--accent),var(--pi
 .feature-list{display:grid;grid-template-columns:1fr 1fr;gap:7px;margin-bottom:22px}
 .feature-item{display:flex;align-items:flex-start;gap:7px;font-size:13px;color:var(--sub)}
 .feature-item::before{content:"✦";color:var(--accent);font-size:9px;margin-top:4px;flex-shrink:0}
-.project-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:18px}
+.project-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
 .proj-card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:22px;transition:all .2s}
 .proj-card:hover{border-color:var(--accent);transform:translateY(-3px);box-shadow:0 12px 40px rgba(124,111,255,.15)}
 .proj-icon{font-size:26px;margin-bottom:12px}
@@ -95,10 +95,11 @@ footer{text-align:center;padding:24px;color:var(--sub);font-size:11px;border-top
 <script>
 var PROJECTS = [
   { icon:"💸", title:"Spend Intelligence Dashboard", desc:"AI-powered spend anomaly detection, budget forecasting, and vendor consolidation tool built for finance teams and department heads. Natural language AI queries, approval workflows, and auto-generated weekly briefs.", tags:["AI","FinTech","React","Spend Analytics"], link:"https://spenddash.vercel.app/" },
-  { icon:"📱", title:"Social Media Command Center", desc:"AI-powered social intelligence dashboard covering Instagram, TikTok, LinkedIn, X, and YouTube. Viral potential scorer, best time to post heatmaps, paid vs organic ROI, AI caption generator, and weekly leadership briefs.", tags:["AI","Social Media","React","Content Strategy"], link:"https://marketingsocialdash.vercel.app/" },
   { icon:"⚡", title:"LeadIQ — B2B Lead Intelligence", desc:"AI-powered B2B lead prospector with fit scoring, personalized outreach sequences, cadence controls, pipeline tracker, and analytics. Chat with AI to find leads by industry, size, or geography.", tags:["AI","B2B","Lead Gen","Sales"], link:"https://leadgen-six-kappa.vercel.app/" },
   { icon:"🏠", title:"UnderwriteAI — Real Estate Analyzer", desc:"AI-powered investment property underwriting tool that aggregates live data from RentCast, FRED, and the Census API to auto-estimate rents, cash flow, NOI, cap rate, DSCR, and more. OpenAI synthesizes everything into a structured deal memo — no spreadsheet required.", tags:["AI","Real Estate","PropTech","Underwriting"], link:"https://hairywin.github.io/underwriteai/" },
+  { icon:"📱", title:"Social Media Command Center", desc:"AI-powered social intelligence dashboard covering Instagram, TikTok, LinkedIn, X, and YouTube. Viral potential scorer, best time to post heatmaps, paid vs organic ROI, AI caption generator, and weekly leadership briefs.", tags:["AI","Social Media","React","Content Strategy"], link:"https://marketingsocialdash.vercel.app/" },
   { icon:"🎮", title:"AI Mini Games", desc:"A suite of AI-built browser games — including the breakout hit brusgottapoo.com, made for my celeb pup Bad Boy Bru and his fans. 16,000 games played and 137 hours of combined playtime in the first few days after launch. Monetized with AdSense, optimized with SQL-based behavior analytics, and iterated fast using LLMs.", tags:["LLMs","Google AdSense","MySQL","Just for Fun"], link:"https://brusgottapoo.com/" },
+  { icon:"🔭", title:"More Coming Soon", desc:"More AI tools in progress. If it can be built faster with AI — it's getting built.", tags:["AI","TBD","Watch This Space"], link:"" },
 ];
 
 var EXPERIENCE = [
