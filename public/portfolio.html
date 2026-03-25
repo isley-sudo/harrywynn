@@ -96,10 +96,10 @@ footer{text-align:center;padding:24px;color:var(--sub);font-size:11px;border-top
 var PROJECTS = [
   { icon:"💸", title:"Spend Intelligence Dashboard", desc:"AI-powered spend anomaly detection, budget forecasting, and vendor consolidation tool built for finance teams and department heads. Natural language AI queries, approval workflows, and auto-generated weekly briefs.", tags:["AI","FinTech","React","Spend Analytics"], link:"https://spenddash.vercel.app/" },
   { icon:"⚡", title:"LeadIQ — B2B Lead Intelligence", desc:"AI-powered B2B lead prospector with fit scoring, personalized outreach sequences, cadence controls, pipeline tracker, and analytics. Chat with AI to find leads by industry, size, or geography.", tags:["AI","B2B","Lead Gen","Sales"], link:"https://leadgen-six-kappa.vercel.app/" },
-  { icon:"🏠", title:"UnderwriteAI — Real Estate Analyzer", desc:"AI-powered investment property underwriting tool that aggregates live data from RentCast, FRED, and the Census API to auto-estimate rents, cash flow, NOI, cap rate, DSCR, and more. OpenAI synthesizes everything into a structured deal memo — no spreadsheet required.", tags:["AI","Real Estate","PropTech","Underwriting"], link:"https://hairywin.github.io/underwriteai/" },
   { icon:"📱", title:"Social Media Command Center", desc:"AI-powered social intelligence dashboard covering Instagram, TikTok, LinkedIn, X, and YouTube. Viral potential scorer, best time to post heatmaps, paid vs organic ROI, AI caption generator, and weekly leadership briefs.", tags:["AI","Social Media","React","Content Strategy"], link:"https://marketingsocialdash.vercel.app/" },
   { icon:"🎮", title:"AI Mini Games", desc:"A suite of AI-built browser games — including the breakout hit brusgottapoo.com, made for my celeb pup Bad Boy Bru and his fans. 16,000 games played and 137 hours of combined playtime in the first few days after launch. Monetized with AdSense, optimized with SQL-based behavior analytics, and iterated fast using LLMs.", tags:["LLMs","Google AdSense","MySQL","Just for Fun"], link:"https://brusgottapoo.com/" },
-  { icon:"🔭", title:"More Coming Soon", desc:"More AI tools in progress. If it can be built faster with AI — it's getting built.", tags:["AI","TBD","Watch This Space"], link:"" },
+  { icon:"🏠", title:"UnderwriteAI — Real Estate Analyzer", desc:"AI-powered investment property underwriting tool that aggregates live data from RentCast, FRED, and the Census API to auto-estimate rents, cash flow, NOI, cap rate, DSCR, and more. OpenAI synthesizes everything into a structured deal memo — no spreadsheet required.", tags:["AI","Real Estate","PropTech","Underwriting"], link:"https://hairywin.github.io/underwriteai/" },
+  { icon:"🔭", title:"More Coming Soon", desc:"More tools in progress. No industry is off limits — if there's friction, there's a build.", tags:["AI","TBD","Watch This Space"], link:"" },
 ];
 
 var EXPERIENCE = [
@@ -160,6 +160,40 @@ var SKILLS = [
     <h2>Built, Shipped, <em>Live</em></h2>
     <p class="section-sub">Built by one human, one AI, and an unreasonable amount of curiosity.</p>
 
+    <!-- Featured 1: Inventory -->
+    <div class="featured-card" style="margin-bottom:16px">
+      <div class="featured-preview">
+        <div class="preview-glow"></div>
+        <div class="preview-mockup">
+          <div class="mock-card"><div class="mock-num" style="color:#00f5a0">847</div><div class="mock-label">SKUs Tracked</div><div class="mock-bar-wrap"><div class="mock-bar" style="width:82%;background:#00f5a0"></div></div></div>
+          <div class="mock-card"><div class="mock-num" style="color:#ffb340">12</div><div class="mock-label">Low Stock Alerts</div><div class="mock-bar-wrap"><div class="mock-bar" style="width:40%;background:#ffb340"></div></div></div>
+          <div class="mock-card"><div class="mock-num" style="color:#7c6fff">94%</div><div class="mock-label">Forecast Accuracy</div><div class="mock-bar-wrap"><div class="mock-bar" style="width:94%;background:#7c6fff"></div></div></div>
+          <div class="mock-card"><div class="mock-num" style="color:#00d4ff">8</div><div class="mock-label">Open POs</div><div class="mock-bar-wrap"><div class="mock-bar" style="width:35%;background:#00d4ff"></div></div></div>
+        </div>
+      </div>
+      <div class="featured-body">
+        <div class="featured-meta">
+          <span class="chip">🔴 Live with Client</span>
+          <span class="chip green">Real-World Beta</span>
+          <span class="chip cyan">Anthropic API</span>
+        </div>
+        <h3>Inventory Management Dashboard</h3>
+        <p>Built for a California DTC brand to replace a manually-maintained Excel workbook. Features inventory health tracking, 12-month demand forecasting, purchase order management, and an AI advisor powered by the Anthropic API. Includes a Shopify CSV importer, SKU grouping, and AI-drafted supplier emails. Currently in live beta with the client.</p>
+        <div class="feature-list">
+          <div class="feature-item">12-month demand forecasting engine</div>
+          <div class="feature-item">AI advisor powered by Anthropic API</div>
+          <div class="feature-item">Shopify CSV importer with conflict resolution</div>
+          <div class="feature-item">AI-drafted supplier emails</div>
+          <div class="feature-item">Purchase order tracking and management</div>
+          <div class="feature-item">SKU grouping and inventory health views</div>
+          <div class="feature-item">Replaced manual Excel workbook entirely</div>
+          <div class="feature-item">Shaped by real client feedback in live beta</div>
+        </div>
+        <a href="https://settlers-club.vercel.app/" target="_blank" class="btn-primary">Launch Live Demo →</a>
+      </div>
+    </div>
+
+    <!-- Featured 2: Partnerships -->
     <div class="featured-card">
       <div class="featured-preview">
         <div class="preview-glow"></div>
@@ -227,7 +261,7 @@ var SKILLS = [
       <div class="contact-links">
         <a href="mailto:harrisonwynn139@gmail.com" class="contact-link"><span>✉️</span> Email Me</a>
         <a href="https://www.linkedin.com/in/harry-wynn-608b25126/" target="_blank" class="contact-link"><span>💼</span> LinkedIn</a>
-        <a href="#" class="contact-link highlight"><span>📄</span> Download Resume</a>
+        <a href="https://drive.google.com/uc?export=download&id=17kdp5nlhpKFKguoXSpelRepiW6dy805e" class="contact-link highlight"><span>📄</span> Download Resume</a>
       </div>
     </div>
   </div>
