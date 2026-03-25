@@ -126,11 +126,13 @@ h1 em{
   background:var(--white);border:1px solid var(--border);
   border-radius:12px;padding:16px 20px;
   box-shadow:0 2px 12px var(--shadow);
-  min-width:160px;text-align:right;
+  width:180px;height:90px;flex-shrink:0;
+  display:flex;flex-direction:column;justify-content:center;
+  text-align:right;
 }
 .hero-stat-num{
   font-family:'Inter',sans-serif;
-  font-size:28px;font-weight:800;color:var(--ink);
+  font-size:28px;font-weight:800;color:var(--accent);
   line-height:1;margin-bottom:4px;
 }
 .hero-stat-label{font-size:11px;color:var(--sub);font-weight:600;text-transform:uppercase;letter-spacing:.8px;}
@@ -408,15 +410,15 @@ var SKILLS = [
   </div>
   <div class="hero-right">
     <div class="hero-stat">
-      <div class="hero-stat-num" style="color:var(--accent)">$1.2B</div>
+      <div class="hero-stat-num">$1.2B</div>
       <div class="hero-stat-label">Portfolio Managed</div>
     </div>
     <div class="hero-stat">
       <div class="hero-stat-num">50+</div>
-      <div class="hero-stat-label">Hours/Mo Saved Per Client</div>
+      <div class="hero-stat-label">Hrs/Mo Saved Per Client</div>
     </div>
     <div class="hero-stat">
-      <div class="hero-stat-num" style="color:var(--sage)">16K+</div>
+      <div class="hero-stat-num">16K+</div>
       <div class="hero-stat-label">Games Played</div>
     </div>
     <div class="hero-stat">
